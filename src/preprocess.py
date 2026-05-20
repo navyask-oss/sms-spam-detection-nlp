@@ -1,6 +1,7 @@
 import re
 import string
 from pathlib import Path
+from typing import Union
 
 import nltk
 import pandas as pd
@@ -33,7 +34,7 @@ def clean_text(text: str) -> str:
     return " ".join(tokens).strip()
 
 
-def load_dataset(csv_path: str | Path) -> pd.DataFrame:
+def load_dataset(csv_path: Union[str, Path]) -> pd.DataFrame:
     """Load and standardize dataset columns to: label, message."""
     df = pd.read_csv(csv_path)
 
